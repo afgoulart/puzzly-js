@@ -1,0 +1,6 @@
+<ul>
+    <li><a href="/">Início</a></li>
+    <% for (i = 0; i < links.length; i++) { %>
+    <li><a href="<%= links[i].path %>"><%= links[i].name %></a></li>
+    <% } %>
+</ul>

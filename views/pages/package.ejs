@@ -1,0 +1,11 @@
+<% layout('../layout') -%>
+
+<h1><% componentName %></h1>
+
+<<%=componentName%>></<%=componentName%>>
+<%  for(var i = 0; i < scripts.length; ++i) {
+        if (scripts[i]) {%>
+<script src="<%= scripts[i].path%>"></script>
+<%      }
+    }
+%>

@@ -1,0 +1,4 @@
+node_modules
+public
+packages/**/dist
+settings.json

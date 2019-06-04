@@ -1,0 +1,39 @@
+{
+  "name": "app-react",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "André Filipe Goulart <andre.goulart@b2wdigital.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/app-react.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.0.0",
+    "assets-webpack-plugin": "^3.9.10",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.3",
+    "css-loader": "^2.1.1",
+    "html-webpack-plugin": "^3.2.0",
+    "react-web-component-style-loader": "^0.1.4-alpha"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-web-component": "^1.3.0",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
+  }
+}

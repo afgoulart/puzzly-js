@@ -1,0 +1,27 @@
+{
+    "name": "Angular7 Package",
+    "packageName": "angular7-pkg",
+    "componentName": "angular-pkg",
+    "publicPath": "dist",
+    "rootPath": "/angular",
+    "basePath": "/angular",
+    "statics": [
+        "es2015-polyfills.js",
+        "polyfills.js",
+        "runtime.js",
+        "styles.js",
+        "main.js"
+    ],
+    "route": [{
+      "name": "Page Angular",
+      "path": "/angular",
+      "children": [{
+          "name": "Nova",
+          "path": "/angular/new"
+      },
+      {
+          "name": "Editar",
+          "path": "/angular/:id"
+      }]
+  }]
+}

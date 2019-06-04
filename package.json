@@ -1,0 +1,32 @@
+{
+  "name": "puzzly-js",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "prestart": "node preparePkg.js",
+    "build": "webpack",
+    "postinstall": "npm run install:pkg && npm run build:pkg",
+    "install:pkg": "lerna exec -- npm i",
+    "build:pkg": "lerna exec -- npm run build"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "ejs-locals": "^1.0.2",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "ncp": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "express": "^4.16.4",
+    "lerna": "^3.14.0",
+    "nodemon": "^1.19.1",
+    "ts-loader": "^6.0.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2"
+  }
+}
