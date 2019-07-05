@@ -4,7 +4,6 @@
     "componentName": "angular-pkg",
     "publicPath": "dist",
     "rootPath": "/angular",
-    "basePath": "/angular",
     "statics": [
         "es2015-polyfills.js",
         "polyfills.js",

@@ -5,8 +5,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var Auth = require('./middlewares/auth');
+
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var packagesRouter = require('./routes/packages');
 
 var app = express();
@@ -25,14 +26,15 @@ module.exports = (allconfigs = {}) => {
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, 'public')));
+  app.use(Auth);
 
   app.use(function(req, res, next) {
     req.menu = menu;
     next()
   });
 
+
   app.use('/', indexRouter);
-  app.use('/user', usersRouter)
   
   /**
    * Configuring packages router

@@ -8,7 +8,8 @@
     "build": "webpack",
     "postinstall": "npm run install:pkg && npm run build:pkg",
     "install:pkg": "lerna exec -- npm i",
-    "build:pkg": "lerna exec -- npm run build"
+    "build:pkg": "lerna exec -- npm run build",
+    "update:pkg": "npm run build:pkg && npm run prestart"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

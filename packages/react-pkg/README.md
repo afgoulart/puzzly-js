@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const sherlockRules = require('app-react');
+const reactPkg = require('app-react');
 
 // TODO: DEMONSTRATE API
 ```

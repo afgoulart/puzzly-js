@@ -1,4 +1,16 @@
 {
-    "verbose": true,
-    "ignore": ["*.test.js", "public/*"]
+  "verbose": true,
+  "ignore": [
+    "*.test.js",
+    "public/*",
+    "packages/**/dist/*.*",
+    "*.json"
+  ],
+  "watch": [
+    "*.js",
+    "packages/**/*"
+  ],
+  "events": {
+    "restart": "npm run update:pkg"
   }
+}

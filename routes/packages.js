@@ -3,13 +3,12 @@
 
 /* GET users listing. */
 module.exports = (app, configs) => {
-  const { name, rootPath, componentName, basePath, scripts = [] } = configs;
+  const { name, rootPath, componentName, scripts = [] } = configs;
 
-  app.get(`${rootPath}*`, function(req, res, next) {
-
+  app.get(`${rootPath}*`, function(req, res) {
     res.render('pages/package', {
       title: name,
-      basePath: basePath || "",
+      basePath: rootPath || "",
       links: req.menu,
       componentName,
       scripts
