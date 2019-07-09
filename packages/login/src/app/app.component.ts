@@ -5,7 +5,7 @@ import { TouchSequence } from 'selenium-webdriver';
 import { AuthenticationService } from './_services';
 import { User } from './_models';
 @Component({
-  selector: 'app-root',
+  selector: 'login-pkg',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

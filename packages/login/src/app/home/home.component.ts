@@ -10,9 +10,7 @@ export class HomeComponent implements OnInit {
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
-      setTimeout(function() {
         window.location.href = '/';
-      }, 1000);
     } else {
       this.router.navigate(['/sing-in']);
     }
