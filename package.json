@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "nodemon ./bin/www ",
     "prestart": "node preparePkg.js",
     "build": "webpack",
     "postinstall": "npm run install:pkg && npm run build:pkg",
@@ -12,6 +12,7 @@
     "update:pkg": "npm run build:pkg && npm run prestart"
   },
   "dependencies": {
+    "@types/js-cookie": "^2.2.2",
     "cookie-parser": "~1.4.4",
     "cookies": "^0.7.3",
     "debug": "~2.6.9",

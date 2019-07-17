@@ -3,17 +3,12 @@
   <%- partial('partials/head', {title}) %>
   <body>
     <header>
+      <%- partial('partials/menu', {links})%>
     </header>
-    <main>
-      <section class="sidebar">
-        <%- partial('partials/menu', {links})%>
-      </section>
-      <section>
-        <%-body%>
-      </section>
-      <footer>
-        
-      </footer>
+    <main class="content">
+      <%-body%>
     </main>
+    <footer>
+    </footer>
   </body>
 </html>

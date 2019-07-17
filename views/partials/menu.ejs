@@ -1,6 +1,16 @@
-<ul>
+<ul class="menu">
     <li><a href="/">Início</a></li>
     <% for (i = 0; i < links.length; i++) { %>
-    <li><a href="<%= links[i].path %>"><%= links[i].name %></a></li>
+    <li>
+        <a href="<%= links[i].path %>"><%= links[i].name %></a>
+        <% if (links[i].children && links[i].children.length > 0) { %>
+            <ul class="menu-level2">
+            <% for (ii = 0; ii < links[i].children.length; ii++) { %>
+                <li><a href="<%= links[i].children[ii].path %>"><%= links[i].children[ii].name %></a></li>
+            <% } %>
+            </ul>
+        <% } %>
+    </li>
+    
     <% } %>
 </ul>

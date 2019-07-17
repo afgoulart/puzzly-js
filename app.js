@@ -5,10 +5,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var Auth = require('./middlewares/auth');
-
 var indexRouter = require('./routes/index');
 var packagesRouter = require('./routes/packages');
+var Auth = require('./middlewares/auth')
 
 var app = express();
 
@@ -26,15 +25,16 @@ module.exports = (allconfigs = {}) => {
   app.use(express.urlencoded({ extended: false }));
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, 'public')));
-  app.use(Auth);
-
+  
   app.use(function(req, res, next) {
     req.menu = menu;
     next()
   });
 
-
-  app.use('/', indexRouter);
+  app.use(Auth)
+  
+  
+  app.use('/', Auth, indexRouter);
   
   /**
    * Configuring packages router
@@ -44,7 +44,6 @@ module.exports = (allconfigs = {}) => {
     const pkg = allconfigs.packages[p];
     packagesRouter(app, pkg);
   })
-
   // catch 404 and forward to error handler
   // app.use(function (req, res, next) {
   //   next(createError(404));

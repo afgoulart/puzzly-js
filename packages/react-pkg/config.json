@@ -8,14 +8,7 @@
         {
             "name": "Page React",
             "path": "/react",
-            "children": [{
-                "name": "Nova",
-                "path": "/react/new"
-            },
-            {
-                "name": "Editar",
-                "path": "/react/:id"
-            }]
+            "children": []
         }
     ]
 }

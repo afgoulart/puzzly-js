@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule }    from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,9 +8,10 @@ import { fakeBackendProvider, ErrorInterceptor, JwtInterceptor } from './_helper
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AlertComponent } from './_components';
 
-import { LoginComponent } from './login';
-import { RegisterComponent } from './register';
-import { HomeComponent } from './home';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ declarations: [
     AlertComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogoutComponent
 ],
 providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

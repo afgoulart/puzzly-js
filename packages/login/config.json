@@ -18,16 +18,16 @@
       "name": "Page Login",
       "path": "/auth",
       "children": [{
-          "name": "Entrar",
-          "path": "/auth/sing-in"
+        "name": "Entrar",
+        "path": "/auth/sing-in"
       },
       {
-          "name": "Cadastrar",
-          "path": "/auth/register"
+        "name": "Cadastrar",
+        "path": "/auth/register"
       },
       {
-          "name": "Sair",
-          "path": "/login/logout"
+        "name": "Sair",
+        "path": "/auth/logout"
       }]
   }]
 }

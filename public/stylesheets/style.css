@@ -1,8 +1,26 @@
+html {
+  min-height: 100%;
+}
+
 body {
-  padding: 50px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+header {
+  flex: 1;
+  background: red;
+}
+
+main {
+  flex: 2;
+  justify-items: stretch;
+  padding: 10px 20px;
 }

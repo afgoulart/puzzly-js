@@ -15,12 +15,8 @@
       "name": "Page Angular",
       "path": "/angular",
       "children": [{
-          "name": "Nova",
-          "path": "/angular/new"
-      },
-      {
-          "name": "Editar",
-          "path": "/angular/:id"
+          "name": "Test 1",
+          "path": "/angular/test"
       }]
   }]
 }

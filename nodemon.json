@@ -9,8 +9,5 @@
   "watch": [
     "*.js",
     "packages/**/*"
-  ],
-  "events": {
-    "restart": "npm run update:pkg"
-  }
+  ]
 }
