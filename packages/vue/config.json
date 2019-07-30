@@ -1,0 +1,24 @@
+{
+    "name": "Vue Package",
+    "version": "1.0.0",
+    "sourceUrl": "http://localhost:8888/statics/vue-pkg",
+    "packageName": "vue",
+    "componentName": "vue-pkg",
+    "publicPath": "dist",
+    "rootPath": "/angular",
+    "statics": [
+        "es2015-polyfills.js",
+        "polyfills.js",
+        "runtime.js",
+        "styles.js",
+        "main.js"
+    ],
+    "route": [{
+      "name": "Page Angular",
+      "path": "/angular",
+      "children": [{
+          "name": "Test 1",
+          "path": "/angular/test"
+      }]
+  }]
+}
