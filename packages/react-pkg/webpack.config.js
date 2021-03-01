@@ -1,52 +1,54 @@
-const package = require('./package.json')
+const package = require('./package.json');
 const CopyPlugin = require('copy-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
 
-const AssetsPluginConfig = new AssetsPlugin({
-  filename: 'assets.json',
-  fullPath: false,
-  entrypoints: false,
-  processOutput: function (assets) {
-    console.log(assets);
-    const keys = Object.keys(assets);
-    const output = keys.reduce((acc, k) => {
-      const ks = Object.keys(k);
-      const o = ks.reduce((a, v) => {
-        return a.concat(k[j])
-      }, []);
-      return acc.concat(o)
-    }, [])
-    return output
-  }
-})
-const CopyPluginConfig = new CopyPlugin([
-  'assets.json'
-])
+const output =
+  process.env.NODE_ENV === 'production'
+    ? {
+        filename: 'bundle.js',
+      }
+    : {
+        path: __dirname + '/public',
+        filename: 'bundle.js',
+      };
+
+const hotreload =
+  process.env.NODE_ENV === 'production'
+    ? {}
+    : {
+        devServer: {
+          inline: true,
+          contentBase: './public',
+          port: 3333,
+        },
+      };
 
 module.exports = {
-  entry: './lib/app.js',
-  output: {
-    filename: 'bundle.js'
-  },
+  entry: __dirname + '/lib/app.js',
+  output,
+  mode: process.env.NODE_ENV || 'development',
+  ...hotreload,
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react']
-          }
-        }],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react'],
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,
         use: [
-          { loader: "react-web-component-style-loader" },
-          { loader: "css-loader" }
-        ]
-      }
-    ]
-  }
-}
+          { loader: 'react-web-component-style-loader' },
+          { loader: 'css-loader' },
+        ],
+      },
+    ],
+  },
+};
