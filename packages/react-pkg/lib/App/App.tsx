@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './app.css';
 
 class App extends Component {
-  constructor(props) {
+  [x: string]: any;
+
+  constructor(props: any) {
     super(props);
 
     this.state = {
@@ -10,35 +12,35 @@ class App extends Component {
     };
   }
 
-  setList(value) {
+  setList(value: string) {
+    const { list } = this.state as any;
     this.setState({
-      list: this.state.list.concat(value),
+      list: list.concat(value),
     });
   }
 
-  removeItem(item) {
-    const { list } = this.state;
+  removeItem(indice: number) {
+    const { list } = this.state as any;
     this.setState({
       list: list.reduce(
-        (acc, i, idx) => (idx === item ? acc : acc.concat(i)),
+        (acc: string[], item: string, idx: number) =>
+          idx === indice ? acc : acc.concat(item),
         []
       ),
     });
   }
 
   render() {
-    const { list } = this.state;
+    const { list } = this.state as any;
     return (
       <div>
         <h1>Todo's List</h1>
         <input
           placeholder="What will you do?"
-          onKeyUp={(e) => {
+          onKeyUp={(e: any) => {
             const value = e.target?.value || '';
             if (value !== '' && (e.code === 13 || e.keyCode === 13)) {
-              console.log('AAAAAAAAAAAAAA', value, list);
               this.setList(value);
-              console.log('AAAAAAAAAAAAAA', value, list);
               e.target.value = '';
             }
           }}

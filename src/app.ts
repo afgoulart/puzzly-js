@@ -1,14 +1,15 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
-var debug = require('debug')('app:server');
-var http = require('http');
+import http from 'http';
+import debugPkg from 'debug';
+const debug = debugPkg('app:server');
 
 const startApp = (packagesConfig) => {
   /**
    * Module dependencies.
    */
 
-  var app = require('../app')(packagesConfig);
+  var app = require('./server')(packagesConfig);
 
   /**
    * Get port from environment and store in Express.
@@ -26,10 +27,10 @@ const startApp = (packagesConfig) => {
   /**
    * Listen on provided port, on all network interfaces.
    */
-   server.on('error', onError(port));
-   server.on('listening', onListening(server));
-   server.listen(port);
-}
+  server.on('error', onError(port));
+  server.on('listening', onListening(server));
+  server.listen(port);
+};
 
 /**
  * Normalize a port into a number, string, or false.
@@ -55,14 +56,12 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-const onError = port => error => {
+const onError = (port) => (error) => {
   if (error.syscall !== 'listen') {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -77,7 +76,7 @@ const onError = port => error => {
     default:
       throw error;
   }
-}
+};
 
 /**
  * Event listener for HTTP server "listening" event.
@@ -85,12 +84,9 @@ const onError = port => error => {
 
 const onListening = (server) => () => {
   var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
-}
+};
 
-
-const settings = require('../settings.json');
+const settings = require('./settings.json');
 startApp(settings);

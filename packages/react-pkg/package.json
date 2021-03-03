@@ -28,14 +28,17 @@
     "copy-webpack-plugin": "^5.0.3",
     "css-loader": "^2.1.1",
     "html-webpack-plugin": "^3.2.0",
-    "react-web-component-style-loader": "^0.1.4-alpha"
+    "react-web-component-style-loader": "^0.1.4-alpha",
+    "webpack-cli": "^4.5.0"
   },
   "dependencies": {
+    "@types/react": "^17.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-web-component": "^2.0.1",
-    "webpack": "^4.31.0",
-    "webpack-cli": "^4.5.0",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.2.2",
+    "webpack": "^5.24.2",
     "webpack-dev-server": "^3.11.2"
   }
 }

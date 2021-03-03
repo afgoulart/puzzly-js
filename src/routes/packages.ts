@@ -2,20 +2,19 @@
 // const router = express.Router();
 
 /* GET users listing. */
-module.exports = (app, configs) => {
+export default (app, configs) => {
   const { name, rootPath, componentName, basePath, scripts = [] } = configs;
 
-  app.get(`${rootPath}*`, function(req, res, next) {
-
+  app.get(`${rootPath}*`, function (req, res, next) {
     res.render('pages/package', {
       title: name,
-      basePath: basePath || "",
+      basePath: basePath || '',
       links: req.menu,
       componentName,
-      scripts
-    })
+      scripts,
+    });
     // res.send('respond with a resource');
   });
 
   return app;
-}
+};
